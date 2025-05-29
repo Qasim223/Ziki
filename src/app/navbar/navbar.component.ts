@@ -33,6 +33,10 @@ export class NavbarComponent {
   ngOnInit() {
     this.items = [
       {
+        label: 'Home',
+        icon: 'pi pi-home',
+      },
+      {
         label: 'Stock',
         icon: 'pi pi-warehouse',
         items: [
