@@ -23,15 +23,15 @@ import { Menu } from 'primeng/menu';
 })
 export class NavbarComponent {
   visible: boolean = false;
-  items: MenuItem[] | undefined;
-  items2: MenuItem[] | undefined;
+  sideMenuItems: MenuItem[] | undefined;
+  profileMenuItems: MenuItem[] | undefined;
   loggedInUser: string = 'Kasim Sabir';
   menuTitle: string = 'Dashboard';
 
   constructor(private messageService: MessageService) {}
 
   ngOnInit() {
-    this.items = [
+    this.sideMenuItems = [
       {
         label: 'Home',
         icon: 'pi pi-home',
@@ -128,7 +128,7 @@ export class NavbarComponent {
       },
     ];
 
-    this.items2 = [
+    this.profileMenuItems = [
       {
         label: this.loggedInUser,
         items: [
