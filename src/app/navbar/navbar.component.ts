@@ -49,25 +49,13 @@ export class NavbarComponent {
             },
           },
           {
-            label: 'Search',
-            icon: 'pi pi-search',
+            label: 'Stock Control',
+            icon: 'pi pi-database',
             command: () => {
               this.messageService.add({
                 severity: 'warn',
                 summary: 'Search Results',
                 detail: 'No results found',
-                life: 3000,
-              });
-            },
-          },
-          {
-            label: 'Print',
-            icon: 'pi pi-print',
-            command: () => {
-              this.messageService.add({
-                severity: 'error',
-                summary: 'Error',
-                detail: 'No printer connected',
                 life: 3000,
               });
             },
@@ -79,25 +67,25 @@ export class NavbarComponent {
         icon: 'pi pi-cart-minus',
         items: [
           {
-            label: 'Import',
-            icon: 'pi pi-cloud-download',
+            label: 'New',
+            icon: 'pi pi-plus',
             command: () => {
               this.messageService.add({
-                severity: 'info',
-                summary: 'Downloads',
-                detail: 'Downloaded from cloud',
+                severity: 'success',
+                summary: 'Success',
+                detail: 'File created',
                 life: 3000,
               });
             },
           },
           {
-            label: 'Export',
-            icon: 'pi pi-cloud-upload',
+            label: 'Sales Control',
+            icon: 'pi pi-database',
             command: () => {
               this.messageService.add({
-                severity: 'info',
-                summary: 'Shared',
-                detail: 'Exported to cloud',
+                severity: 'warn',
+                summary: 'Search Results',
+                detail: 'No results found',
                 life: 3000,
               });
             },
@@ -109,42 +97,30 @@ export class NavbarComponent {
         icon: 'pi pi-cart-plus',
         items: [
           {
-            label: 'Import',
-            icon: 'pi pi-cloud-download',
+            label: 'New',
+            icon: 'pi pi-plus',
             command: () => {
               this.messageService.add({
-                severity: 'info',
-                summary: 'Downloads',
-                detail: 'Downloaded from cloud',
+                severity: 'success',
+                summary: 'Success',
+                detail: 'File created',
                 life: 3000,
               });
             },
           },
           {
-            label: 'Export',
-            icon: 'pi pi-cloud-upload',
+            label: 'Purchase Control',
+            icon: 'pi pi-database',
             command: () => {
               this.messageService.add({
-                severity: 'info',
-                summary: 'Shared',
-                detail: 'Exported to cloud',
+                severity: 'warn',
+                summary: 'Search Results',
+                detail: 'No results found',
                 life: 3000,
               });
             },
           },
         ],
-      },
-      {
-        label: 'Sign Out',
-        icon: 'pi pi-sign-out',
-        command: () => {
-          this.messageService.add({
-            severity: 'info',
-            summary: 'Signed out',
-            detail: 'User logged out',
-            life: 3000,
-          });
-        },
       },
     ];
 
