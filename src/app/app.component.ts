@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { OnInit } from '@angular/core';
-import { initFlowbite } from 'flowbite';
-import { FlowbiteService } from './services/flowbite.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PrimeNG } from 'primeng/config';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +13,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 export class AppComponent implements OnInit {
   title = 'web-app';
 
-  constructor(private flowbiteService: FlowbiteService) {}
+  constructor(private primeng: PrimeNG) {}
 
   ngOnInit(): void {
-    this.flowbiteService.loadFlowbite((flowbite) => {
-      initFlowbite();
-    });
+    this.primeng.ripple.set(true);
   }
 }
