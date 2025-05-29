@@ -22,11 +22,14 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
-        preset: Material,
+        preset: Aura,
         options: {
           prefix: 'p',
-          darkModeSelector: 'system',
-          cssLayer: false,
+          darkModeSelector: false || 'none',
+          cssLayer: {
+            name: 'primeng',
+            order: 'theme, base, primeng',
+          },
         },
       },
     }),

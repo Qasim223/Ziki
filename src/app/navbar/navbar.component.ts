@@ -3,10 +3,20 @@ import { ButtonModule } from 'primeng/button';
 import { DrawerModule } from 'primeng/drawer';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { MenuItem, MessageService } from 'primeng/api';
+import { MenubarModule } from 'primeng/menubar';
+import { AvatarModule } from 'primeng/avatar';
+import { Menu } from 'primeng/menu';
 
 @Component({
   selector: 'app-navbar',
-  imports: [ButtonModule, DrawerModule, PanelMenuModule],
+  imports: [
+    ButtonModule,
+    DrawerModule,
+    PanelMenuModule,
+    MenubarModule,
+    AvatarModule,
+    Menu,
+  ],
   providers: [MessageService],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
@@ -14,14 +24,17 @@ import { MenuItem, MessageService } from 'primeng/api';
 export class NavbarComponent {
   visible: boolean = false;
   items: MenuItem[] | undefined;
+  items2: MenuItem[] | undefined;
+  loggedInUser: string = 'Kasim Sabir';
+  menuTitle: string = 'Dashboard';
 
   constructor(private messageService: MessageService) {}
 
   ngOnInit() {
     this.items = [
       {
-        label: 'Files',
-        icon: 'pi pi-file',
+        label: 'Stock',
+        icon: 'pi pi-warehouse',
         items: [
           {
             label: 'New',
@@ -62,8 +75,38 @@ export class NavbarComponent {
         ],
       },
       {
-        label: 'Sync',
-        icon: 'pi pi-cloud',
+        label: 'Sales',
+        icon: 'pi pi-cart-minus',
+        items: [
+          {
+            label: 'Import',
+            icon: 'pi pi-cloud-download',
+            command: () => {
+              this.messageService.add({
+                severity: 'info',
+                summary: 'Downloads',
+                detail: 'Downloaded from cloud',
+                life: 3000,
+              });
+            },
+          },
+          {
+            label: 'Export',
+            icon: 'pi pi-cloud-upload',
+            command: () => {
+              this.messageService.add({
+                severity: 'info',
+                summary: 'Shared',
+                detail: 'Exported to cloud',
+                life: 3000,
+              });
+            },
+          },
+        ],
+      },
+      {
+        label: 'Purchase',
+        icon: 'pi pi-cart-plus',
         items: [
           {
             label: 'Import',
@@ -102,6 +145,22 @@ export class NavbarComponent {
             life: 3000,
           });
         },
+      },
+    ];
+
+    this.items2 = [
+      {
+        label: this.loggedInUser,
+        items: [
+          {
+            label: 'My Profile',
+            icon: 'pi pi-user',
+          },
+          {
+            label: 'Log Out',
+            icon: 'pi pi-sign-out',
+          },
+        ],
       },
     ];
   }

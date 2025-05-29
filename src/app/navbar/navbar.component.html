@@ -1,7 +1,36 @@
-<p-drawer [(visible)]="visible" header="Kasim Sabir">
+<p-drawer
+  [(visible)]="visible"
+  header="Ziki"
+  position="left"
+  [style]="{ width: '300px' }"
+>
   <div class="card flex justify-center">
     <p-panelmenu [model]="items" styleClass="w-full md:w-80" />
   </div>
 </p-drawer>
 
-<p-button (click)="visible = true" icon="pi pi-arrow-right" />
+<p-menubar>
+  <ng-template #start>
+    <p-button
+      (click)="visible = true"
+      icon="pi pi-align-justify"
+      styleClass="bg-cyan-500 border-inherit"
+    />
+
+    <h3
+      class="text-1xl/7 font-bold text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight ml-3"
+    >
+      {{ menuTitle }}
+    </h3>
+  </ng-template>
+  <ng-template #end>
+    <div class="flex items-center gap-2">
+      <p-avatar
+        image="https://primefaces.org/cdn/primeng/images/demo/avatar/walter.jpg"
+        shape="circle"
+        (click)="menu.toggle($event)"
+      />
+      <p-menu #menu [model]="items2" [popup]="true" />
+    </div>
+  </ng-template>
+</p-menubar>
