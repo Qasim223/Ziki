@@ -44,6 +44,38 @@
       <p-chart type="bar" [data]="salesData" [options]="salesOptions" />
     </div>
     <div class="card">
+      <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-3 mb-4">
+        <p-card styleClass="shadow-none">
+          <ng-template #title>
+            22.543
+            <span class="pi pi-arrow-up-right text-green-500"> 24%</span>
+          </ng-template>
+          <ng-template #subtitle>
+            <span class="box box-border w-[5%] bg-sky-100">&nbsp;</span>
+            Stock Status
+          </ng-template>
+        </p-card>
+        <p-card styleClass="shadow-none">
+          <ng-template #title>
+            17.42
+            <span class="pi pi-arrow-up-right text-green-500"> 28%</span>
+          </ng-template>
+          <ng-template #subtitle>
+            <span class="box box-border w-[5%] bg-sky-500">&nbsp;</span>
+            Inventory Turnover
+          </ng-template>
+        </p-card>
+        <p-card styleClass="shadow-none">
+          <ng-template #title>
+            19.582
+            <span class="pi pi-arrow-up-right text-green-500"> 22%</span>
+          </ng-template>
+          <ng-template #subtitle>
+            <span class="box box-border w-[5%] bg-sky-950">&nbsp;</span>
+            Products Ordered
+          </ng-template>
+        </p-card>
+      </div>
       <p-chart
         type="bar"
         [data]="stockData"
