@@ -6,7 +6,7 @@ import { MenuItem, MessageService } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { AvatarModule } from 'primeng/avatar';
 import { Menu } from 'primeng/menu';
-import { GlobalService } from '../services/global.service';
+import { GlobalService } from '../../services/global.service';
 import { SelectButtonModule } from 'primeng/selectbutton';
 
 @Component({
@@ -23,6 +23,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
   providers: [MessageService],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
+  standalone: true,
 })
 export class NavbarComponent {
   visible: boolean = false;
