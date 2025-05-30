@@ -35,6 +35,7 @@ export class NavbarComponent {
       {
         label: 'Home',
         icon: 'pi pi-home',
+        routerLink: ['/dashboard'],
       },
       {
         label: 'Stock',

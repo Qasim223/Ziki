@@ -1,3 +1,55 @@
-<div class="card">
-  <p-chart type="bar" [data]="basicData" [options]="basicOptions" />
+<div class="flex-1 p-4">
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="text-2xl font-bold">Welcome to Ziki</h2>
+  </div>
+
+  <div class="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-4 mb-4">
+    <p-card header="Sales:">
+      <p class="m-0">218</p>
+    </p-card>
+    <p-card header="Purchases:">
+      <p class="m-0">138</p>
+    </p-card>
+    <p-card header="Revenue">
+      <p class="m-0">$57K</p>
+    </p-card>
+  </div>
+
+  <div class="grid grid-cols-2 gap-2">
+    <div class="card">
+      <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-3 mb-4">
+        <p-card styleClass="shadow-none">
+          <ng-template #title>
+            $2300
+            <span class="pi pi-arrow-up-right text-green-500"> 28%</span>
+          </ng-template>
+          <ng-template #subtitle> Weekly Revenue </ng-template>
+        </p-card>
+        <p-card styleClass="shadow-none">
+          <ng-template #title>
+            $9200
+            <span class="pi pi-arrow-up-right text-green-500"> 28%</span>
+          </ng-template>
+          <ng-template #subtitle> Monthly Revenue </ng-template>
+        </p-card>
+        <p-card styleClass="shadow-none">
+          <ng-template #title>
+            $110,400
+            <span class="pi pi-arrow-down-right text-red-500"> 11%</span>
+          </ng-template>
+          <ng-template #subtitle> Yearly Revenue </ng-template>
+        </p-card>
+      </div>
+
+      <p-chart type="bar" [data]="salesData" [options]="salesOptions" />
+    </div>
+    <div class="card">
+      <p-chart
+        type="bar"
+        [data]="stockData"
+        [options]="stockOptions"
+        class="h-[30rem]"
+      />
+    </div>
+  </div>
 </div>
