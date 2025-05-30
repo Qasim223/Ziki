@@ -9,6 +9,7 @@ export const routes: Routes = [
   },
   {
     path: 'dashboard',
+    title: 'Ziki | Dashboard',
     component: DashboardComponent,
   },
 ];
