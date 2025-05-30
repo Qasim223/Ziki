@@ -77,6 +77,7 @@ export class NavbarComponent {
             routerLink: ['/stock/control'],
             command: () => {
               this.visible = false;
+              this.menuTitle = 'Stock Control';
             },
           },
         ],
