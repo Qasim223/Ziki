@@ -6,6 +6,8 @@ import { MenuItem, MessageService } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { AvatarModule } from 'primeng/avatar';
 import { Menu } from 'primeng/menu';
+import { GlobalService } from '../services/global.service';
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 @Component({
   selector: 'app-navbar',
@@ -16,6 +18,7 @@ import { Menu } from 'primeng/menu';
     MenubarModule,
     AvatarModule,
     Menu,
+    SelectButtonModule,
   ],
   providers: [MessageService],
   templateUrl: './navbar.component.html',
@@ -28,9 +31,20 @@ export class NavbarComponent {
   loggedInUser: string = 'Kasim Sabir';
   menuTitle: string = 'Dashboard';
 
-  constructor(private messageService: MessageService) {}
+  darkModeLabel: string = 'Dark Mode';
+  darkMode: boolean = false;
+  darkModeIcon: string = 'pi pi-moon';
+
+  constructor(
+    private messageService: MessageService,
+    private GlobalService: GlobalService
+  ) {}
 
   ngOnInit() {
+    this.darkMode = this.GlobalService.getDarkModeStatus();
+    this.darkModeIcon = this.darkMode ? 'pi pi-sun' : 'pi pi-moon';
+    this.darkModeLabel = this.darkMode ? 'Light Mode' : 'Dark Mode';
+
     this.sideMenuItems = [
       {
         label: 'Home',
@@ -138,11 +152,23 @@ export class NavbarComponent {
             icon: 'pi pi-user',
           },
           {
+            label: this.darkModeLabel,
+            icon: this.darkModeIcon,
+            command: () => this.toggleDarkMode(),
+          },
+          {
             label: 'Log Out',
             icon: 'pi pi-sign-out',
           },
         ],
       },
     ];
+  }
+
+  toggleDarkMode() {
+    this.GlobalService.toggleDarkMode();
+    this.darkMode = this.GlobalService.getDarkModeStatus();
+    this.darkModeIcon = this.darkMode ? 'pi pi-sun' : 'pi pi-moon';
+    this.darkModeLabel = this.darkMode ? 'Light Mode' : 'Dark Mode';
   }
 }
