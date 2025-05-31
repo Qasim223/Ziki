@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { TableModule } from 'primeng/table';
-import { RatingModule } from 'primeng/rating';
 import { TagModule } from 'primeng/tag';
-import { ButtonModule } from 'primeng/button';
+import { RatingModule } from 'primeng/rating';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
+
 import { Stock } from '../../../classes/stock';
 import { StockService } from '../../../services/stock.service';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-stock-control',
@@ -16,12 +16,12 @@ import { HttpClientModule } from '@angular/common/http';
     RatingModule,
     TagModule,
     ButtonModule,
-    FormsModule,
     CommonModule,
-    HttpClientModule,
+    FormsModule,
   ],
   templateUrl: './stock-control.component.html',
   styleUrl: './stock-control.component.css',
+  standalone: true,
 })
 export class StockControlComponent {
   stocks!: Stock[];

@@ -1,47 +1,52 @@
-<div class="card">
-  <p-table [value]="stocks" [tableStyle]="{ 'min-width': '60rem' }">
-    <ng-template #caption>
-      <div class="flex items-center justify-between">
-        <span class="text-xl font-bold">Stock Control</span>
-        <p-button icon="pi pi-refresh" rounded raised />
-      </div>
-    </ng-template>
-    <ng-template #header>
-      <tr>
-        <th>Name</th>
-        <th>Image</th>
-        <th>Price</th>
-        <th>Category</th>
-        <th>Reviews</th>
-        <th>Status</th>
-      </tr>
-    </ng-template>
-    <ng-template #body let-stocks>
-      <tr>
-        <td>{{ stocks.name }}</td>
-        <td>
-          <img
-            [src]="
-              'https://primefaces.org/cdn/primeng/images/demo/product/' +
-              stocks.image
-            "
-            [alt]="stocks.name"
-            class="w-24 rounded"
+<div class="flex-1">
+  <div class="card">
+    <p-table [value]="stocks" [tableStyle]="{ 'min-width': '60rem' }">
+      <ng-template #caption>
+        <div class="flex items-center justify-between">
+          <p-button
+            icon="pi pi-refresh"
+            styleClass="bg-sky-500 border-inherit"
+            raised
           />
-        </td>
-        <td>{{ stocks.price | currency : "USD" }}</td>
-        <td>{{ stocks.category }}</td>
-        <td><p-rating [(ngModel)]="stocks.rating" [readonly]="true" /></td>
-        <td>
-          <p-tag
-            [value]="stocks.inventoryStatus"
-            [severity]="getSeverity(stocks.inventoryStatus)"
-          />
-        </td>
-      </tr>
-    </ng-template>
-    <ng-template #footer>
-      In total there are {{ stocks ? stocks.length : 0 }} Stock Items.
-    </ng-template>
-  </p-table>
+        </div>
+      </ng-template>
+      <ng-template #header>
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Reviews</th>
+          <th>Status</th>
+        </tr>
+      </ng-template>
+      <ng-template #body let-stocks>
+        <tr>
+          <td>{{ stocks.name }}</td>
+          <td>
+            <img
+              [src]="
+                'https://primefaces.org/cdn/primeng/images/demo/product/' +
+                stocks.image
+              "
+              [alt]="stocks.name"
+              class="w-24 rounded"
+            />
+          </td>
+          <td>{{ stocks.price | currency : "USD" }}</td>
+          <td>{{ stocks.category }}</td>
+          <td><p-rating [(ngModel)]="stocks.rating" [readonly]="true" /></td>
+          <td>
+            <p-tag
+              [value]="stocks.inventoryStatus"
+              [severity]="getSeverity(stocks.inventoryStatus)"
+            />
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template #footer>
+        In total there are {{ stocks ? stocks.length : 0 }} Stock Items.
+      </ng-template>
+    </p-table>
+  </div>
 </div>

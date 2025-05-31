@@ -53,6 +53,7 @@ export class NavbarComponent {
         routerLink: ['/dashboard'],
         command: () => {
           this.visible = false;
+          this.menuTitle = 'Dashboard';
         },
       },
       {
