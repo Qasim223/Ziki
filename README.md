@@ -1,4 +1,6 @@
-# AngularProject
+# Ziki - Stock | Sales | Purchase
+
+Ziki is a program that allows you to manage Stock, Sales and Purchases.
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
 
@@ -7,6 +9,8 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 To start a local development server, run:
 
 ```bash
+npm install
+
 ng serve
 ```
 

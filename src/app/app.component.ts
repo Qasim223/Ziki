@@ -11,7 +11,7 @@ import { PrimeNG } from 'primeng/config';
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
-  title = 'web-app';
+  title = 'Ziki';
 
   constructor(private primeng: PrimeNG) {}
 
