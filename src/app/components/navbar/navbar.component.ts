@@ -8,6 +8,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { Menu } from 'primeng/menu';
 import { GlobalService } from '../../services/global.service';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-navbar',
@@ -30,7 +31,7 @@ export class NavbarComponent {
   sideMenuItems: MenuItem[] | undefined;
   profileMenuItems: MenuItem[] | undefined;
   loggedInUser: string = 'Kasim Sabir';
-  menuTitle: string = 'Dashboard';
+  menuTitle: string = '';
 
   darkModeLabel: string = 'Dark Mode';
   darkMode: boolean = false;
@@ -38,13 +39,15 @@ export class NavbarComponent {
 
   constructor(
     private messageService: MessageService,
-    private GlobalService: GlobalService
+    private GlobalService: GlobalService,
+    private titleService: Title
   ) {}
 
   ngOnInit() {
     this.darkMode = this.GlobalService.getDarkModeStatus();
     this.darkModeIcon = this.darkMode ? 'pi pi-sun' : 'pi pi-moon';
     this.darkModeLabel = this.darkMode ? 'Light Mode' : 'Dark Mode';
+    this.menuTitle = this.titleService.getTitle().split('|')[1] || 'Dashboard';
 
     this.sideMenuItems = [
       {
@@ -61,18 +64,6 @@ export class NavbarComponent {
         icon: 'pi pi-warehouse',
         items: [
           {
-            label: 'New',
-            icon: 'pi pi-plus',
-            command: () => {
-              this.messageService.add({
-                severity: 'success',
-                summary: 'Success',
-                detail: 'File created',
-                life: 3000,
-              });
-            },
-          },
-          {
             label: 'Stock Control',
             icon: 'pi pi-database',
             routerLink: ['/stock/control'],
@@ -87,18 +78,6 @@ export class NavbarComponent {
         label: 'Sales',
         icon: 'pi pi-cart-minus',
         items: [
-          {
-            label: 'New',
-            icon: 'pi pi-plus',
-            command: () => {
-              this.messageService.add({
-                severity: 'success',
-                summary: 'Success',
-                detail: 'File created',
-                life: 3000,
-              });
-            },
-          },
           {
             label: 'Sales Control',
             icon: 'pi pi-database',
@@ -117,18 +96,6 @@ export class NavbarComponent {
         label: 'Purchase',
         icon: 'pi pi-cart-plus',
         items: [
-          {
-            label: 'New',
-            icon: 'pi pi-plus',
-            command: () => {
-              this.messageService.add({
-                severity: 'success',
-                summary: 'Success',
-                detail: 'File created',
-                life: 3000,
-              });
-            },
-          },
           {
             label: 'Purchase Control',
             icon: 'pi pi-database',
