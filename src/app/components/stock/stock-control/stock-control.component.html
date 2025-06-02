@@ -1,5 +1,5 @@
 <div class="flex flex-1">
-  <div class="size-90vh">
+  <div class="size-90vh overflow-auto p-6">
     <div class="card">
       <p-toast />
       <p-toolbar styleClass="mb-6">
@@ -58,6 +58,8 @@
         dataKey="id"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [showCurrentPageReport]="true"
+        size="small"
+        styleClass="overflow-x-hidden"
       >
         <ng-template #caption>
           <div class="flex items-center justify-between">
