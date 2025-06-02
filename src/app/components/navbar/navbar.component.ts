@@ -81,13 +81,10 @@ export class NavbarComponent {
           {
             label: 'Sales Control',
             icon: 'pi pi-database',
+            routerLink: ['/sales/control'],
             command: () => {
-              this.messageService.add({
-                severity: 'warn',
-                summary: 'Search Results',
-                detail: 'No results found',
-                life: 3000,
-              });
+              this.visible = false;
+              this.menuTitle = 'Sales Control';
             },
           },
         ],

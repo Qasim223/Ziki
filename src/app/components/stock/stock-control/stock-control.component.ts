@@ -60,15 +60,6 @@ interface ExportColumn {
     InputIconModule,
   ],
   providers: [MessageService, ConfirmationService, StockService],
-  styles: [
-    `
-      :host ::ng-deep .p-dialog .product-image {
-        width: 150px;
-        margin: 0 auto 2rem auto;
-        display: block;
-      }
-    `,
-  ],
 })
 export class StockControlComponent implements OnInit {
   productDialog: boolean = false;
